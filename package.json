@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "babel-loader": "^7.1.1",
+    "babel-preset-env": "^1.6.0",
     "html-webpack-plugin": "^2.29.0",
     "less-loader": "^4.0.5",
     "react": "^15.6.1",
@@ -17,5 +18,9 @@
     "redux": "^3.7.2",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-plugin-react": "^7.1.0"
   }
 }
