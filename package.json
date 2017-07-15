@@ -1,0 +1,21 @@
+{
+  "name": "BenchTest",
+  "version": "1.0.0",
+  "description": "Bench REST Test",
+  "repository": "git@github.com:rubyruy/BenchTest.git",
+  "author": "Ruy Asan",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "webpack-dev-server --open"
+  },
+  "dependencies": {
+    "babel-loader": "^7.1.1",
+    "html-webpack-plugin": "^2.29.0",
+    "less-loader": "^4.0.5",
+    "react": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "redux": "^3.7.2",
+    "webpack": "^3.3.0",
+    "webpack-dev-server": "^2.5.1"
+  }
+}
