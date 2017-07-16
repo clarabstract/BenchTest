@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import css from './TransactionList.less';
 
+import CurrencyDisplay from 'components/CurrencyDisplay';
 import DateDisplay from 'components/DateDisplay';
 
 function transactionsTotal(transactions) {
@@ -16,7 +17,7 @@ export default function TransactionList ({transactions=[]}) {
         <th>Date</th>
         <th>Company</th>
         <th>Account</th>
-        <th>{transactionsTotal(transactions)}</th>
+        <th className={css.AmountHeading}><CurrencyDisplay amount={transactionsTotal(transactions)} /></th>
       </tr>
     </thead>
     <tbody>
@@ -24,7 +25,7 @@ export default function TransactionList ({transactions=[]}) {
         <td className={css.Date}><DateDisplay date={transaction.date} /></td>
         <td className={css.Company}>{transaction.companyName}</td>
         <td className={css.Account}>{transaction.ledgerName}</td>
-        <td className={css.Amount}>{transaction.amount}</td>
+        <td className={css.Amount}><CurrencyDisplay amount={transaction.amount} /></td>
       </tr>)}
     </tbody> 
   </table>;

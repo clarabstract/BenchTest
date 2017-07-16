@@ -15,12 +15,12 @@ export default function Main () {
           date: new Date(),
           ledgerName: 'Frivolities',
           companyName: 'Fancy Keyboard Store Co',
-          amount: 23350,
+          amount: 2242423350,
         },{
           date: new Date(),
           ledgerName: 'Necessities',
           companyName: 'Small Victories',
-          amount: 416,
+          amount: -416,
         }]} />
     </main>
   </div>;
