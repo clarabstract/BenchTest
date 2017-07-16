@@ -31,6 +31,11 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "no-unused-vars": [
+            "error", 
+            { "varsIgnorePattern": "createElement" }
+        ],
+        "react/jsx-uses-vars": ["error"]
     }
 };
