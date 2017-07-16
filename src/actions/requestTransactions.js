@@ -6,9 +6,8 @@ export default function requestTransactions (requestedTransactions) {
   return async (dispatch, getState, {transactionService}) => {
     try {
       let {transactions, availableTransactions, lastFetchedPage} = getState();
-      if (transactions.length < requestedTransactions 
-          && (availableTransactions === null
-            || availableTransactions > requestedTransactions)) {
+      if (availableTransactions === null
+            || transactions.length < availableTransactions) {
         dispatch(setTransactionsLoading());
         let page = await transactionService.fetchTransactionPage(lastFetchedPage + 1);
         dispatch(storeTransactions({
@@ -18,9 +17,10 @@ export default function requestTransactions (requestedTransactions) {
             amount: parseInt(transaction.Amount.replace('.','')),
             companyName: transaction.Company,
           })),
-          availableTransactions: page.availableTransactions,
+          availableTransactions: page.totalCount,
           page: page.page,
         }));
+        dispatch(requestTransactions());
       }
     } catch (err) {
       // eslint-disable-next-line no-console

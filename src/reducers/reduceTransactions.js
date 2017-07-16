@@ -9,7 +9,7 @@ export default function reduceTransactions ({
   switch(type) {
   case 'STORE_TRANSACTIONS': {
     transactionsAreLoading = false;
-    transactions = payload.transactions;
+    transactions = transactions.concat(payload.transactions);
     availableTransactions = payload.availableTransactions;
     lastFetchedPage = payload.page;
   } break;

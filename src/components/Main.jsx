@@ -10,7 +10,9 @@ export default function Main () {
       <h1>Bench Test</h1>
     </header>
     <main>
-      <TransactionList showMoreTransactions={5} />
+      <TransactionList 
+        initialTransactionsShown={20} 
+        showMoreTransactions={20} />
     </main>
   </div>;
 }

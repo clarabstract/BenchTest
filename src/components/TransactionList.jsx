@@ -20,10 +20,7 @@ export default class TransactionList extends Component {
   componentWillMount () {
     this.requestTransactions(this.props, this.state);
   }
-  componentWillUpdate (nextProps, nextState) {
-    this.requestTransactions(nextProps, nextState);
-  }
-
+  
   requestTransactions (props, state) {
     if (this.props.onRequestTransactions) {
       this.props.onRequestTransactions(state.showTransactions);
@@ -31,7 +28,7 @@ export default class TransactionList extends Component {
   }
 
   render () {
-    let transactions = this.props.transactions.slice(0, this.state.showTransactions);
+    let visibleTransactions = this.props.transactions.slice(0, this.state.showTransactions);
     return <div className={css.TransactionList}>
       <table>
         <thead>
@@ -39,11 +36,13 @@ export default class TransactionList extends Component {
             <th>Date</th>
             <th>Company</th>
             <th>Account</th>
-            <th className={css.AmountHeading}>{transactions.length > 0 ? <CurrencyDisplay amount={transactionsTotal(transactions)} /> : '-'}</th>
+            <th className={css.AmountHeading}>{this.props.transactions.length < this.props.availableTransactions 
+              ? <em className={css.Calculating}>calculating total</em>
+              : <CurrencyDisplay amount={transactionsTotal(this.props.transactions)} />}</th>
           </tr>
         </thead>
         <tbody>
-          {transactions.map((transaction, idx) => <tr key={idx}>
+          {visibleTransactions.map((transaction, idx) => <tr key={idx}>
             <td className={css.Date}><DateDisplay date={transaction.date} /></td>
             <td className={css.Company}>{transaction.companyName}</td>
             <td className={css.Account}>{transaction.ledgerName}</td>
@@ -57,7 +56,7 @@ export default class TransactionList extends Component {
         (<tt>{this.props.problem}</tt>) &mdash;
         Please <a href={window.location} onClick={() => window.location.reload()}>try again</a> or
         <a href="mailto:support@bench.co">contact support</a>.
-        </div>}
+      </div>}
       {this.props.availableTransactions > this.state.showTransactions && <button 
         className={css.ShowMore}
         onClick={() => this.setState({
