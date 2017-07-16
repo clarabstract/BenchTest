@@ -1,6 +1,9 @@
 import {createElement} from 'react';
 import PropTypes from 'prop-types';
+
 import css from './TransactionList.less';
+
+import DateDisplay from 'components/DateDisplay';
 
 function transactionsTotal(transactions) {
   return transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
@@ -18,7 +21,7 @@ export default function TransactionList ({transactions=[]}) {
     </thead>
     <tbody>
       {transactions.map((transaction, idx) => <tr key={idx}>
-        <td className={css.Date}>{transaction.date.toString()}</td>
+        <td className={css.Date}><DateDisplay date={transaction.date} /></td>
         <td className={css.Company}>{transaction.companyName}</td>
         <td className={css.Account}>{transaction.ledgerName}</td>
         <td className={css.Amount}>{transaction.amount}</td>

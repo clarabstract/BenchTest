@@ -1,6 +1,9 @@
 import {createElement} from 'react';
+
 import TransactionList from 'components/TransactionList';
+
 import css from './Main.less';
+
 export default function Main () {
   return <div>
     <header className={css.Header}>
