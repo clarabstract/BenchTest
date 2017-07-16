@@ -1,0 +1,47 @@
+@import '../brand';
+.TransactionList {
+  &:extend(#card);
+  margin: 2rem auto;
+  border: 1px solid @dividers;
+
+  border-collapse: collapse;
+
+  & > thead > tr > th, & > tbody > tr > td {
+    padding: 1.5rem 3rem;
+    text-align: left;
+  }
+
+  & > tbody> tr {
+    background-color: @light-bg;
+    border-top: 1px solid @dividers;
+    &:hover td{
+      color: @light-primary;
+    }
+  }
+
+  & > thead {
+    font-weight: normal;
+    font-size: 1.2rem;
+    color: @light-primary;
+  }
+
+
+}
+
+.Date {
+  color: @light-fg;
+}
+
+.Company {
+  font-weight: bold;
+}
+
+.Account {
+  font-weight: bold;
+  color: @light-fg;
+  font-size: 0.9rem;
+}
+
+.Amount {
+  font-weight: bold;
+}

@@ -7,8 +7,7 @@ function transactionsTotal(transactions) {
 }
 
 export default function TransactionList ({transactions=[]}) {
-    console.log(transactions)
-  return <table>
+  return <table className={css.TransactionList}>
     <thead>
       <tr>
         <th>Date</th>
@@ -19,10 +18,10 @@ export default function TransactionList ({transactions=[]}) {
     </thead>
     <tbody>
       {transactions.map((transaction, idx) => <tr key={idx}>
-        <td>{transaction.date.toString()}</td>
-        <td>{transaction.companyName}</td>
-        <td>{transaction.ledgerName}</td>
-        <td>{transaction.amount}</td>
+        <td className={css.Date}>{transaction.date.toString()}</td>
+        <td className={css.Company}>{transaction.companyName}</td>
+        <td className={css.Account}>{transaction.ledgerName}</td>
+        <td className={css.Amount}>{transaction.amount}</td>
       </tr>)}
     </tbody> 
   </table>;
