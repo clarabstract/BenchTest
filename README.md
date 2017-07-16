@@ -1,6 +1,10 @@
 # BenchTest
 
-Bench REST Test app.
+Bench REST Test app
+
+## Viewing
+
+For a quick preview without building anything, simply open `dist/index.html`.
 
 ## Installation
 
@@ -8,7 +12,7 @@ Bench REST Test app.
 - Install [Yarn](https://yarnpkg.com/en/docs/install)
 - Run `yarn` in this folder.
 
-## Running
+## Run Dev Server
 
 ```sh
 yarn run start
