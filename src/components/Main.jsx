@@ -1,6 +1,6 @@
 import {createElement} from 'react';
 
-import TransactionList from 'components/TransactionList';
+import TransactionList from 'components/connected/TransactionList';
 
 import css from './Main.less';
 
@@ -10,18 +10,7 @@ export default function Main () {
       <h1>Bench Test</h1>
     </header>
     <main>
-      <TransactionList transactions={[
-        {
-          date: new Date(),
-          ledgerName: 'Frivolities',
-          companyName: 'Fancy Keyboard Store Co',
-          amount: 2242423350,
-        },{
-          date: new Date(),
-          ledgerName: 'Necessities',
-          companyName: 'Small Victories',
-          amount: -416,
-        }]} />
+      <TransactionList showMoreTransactions={5} />
     </main>
   </div>;
 }

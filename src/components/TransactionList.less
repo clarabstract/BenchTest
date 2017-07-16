@@ -2,29 +2,35 @@
 .TransactionList {
   &:extend(#card);
   margin: 2rem auto;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
   border: 1px solid @dividers;
+  display: inline-block;
 
-  border-collapse: collapse;
+  & > table {
+    border-collapse: collapse;
 
-  & > thead > tr > th, & > tbody > tr > td {
-    padding: 1.5rem 3rem;
-    text-align: left;
-  }
+    & > thead > tr > th, & > tbody > tr > td {
+      padding: 1.5rem 3rem;
+      text-align: left;
+      white-space: nowrap;
+    }
 
-  & > tbody> tr {
-    background-color: @light-bg;
-    border-top: 1px solid @dividers;
-    &:hover td{
+    & > tbody> tr {
+      background-color: @light-bg;
+      border-top: 1px solid @dividers;
+      &:hover td{
+        color: @light-primary;
+      }
+    }
+
+    & > thead {
+      font-weight: normal;
+      font-size: 1.2rem;
       color: @light-primary;
     }
   }
-
-  & > thead {
-    font-weight: normal;
-    font-size: 1.2rem;
-    color: @light-primary;
-  }
-
 
 }
 
@@ -48,4 +54,37 @@
 
 .Amount, .AmountHeading {
   text-align: right !important; // not so unforgivable when using css modules
+}
+
+.LoadingIndicator {
+  text-align: center;
+  text-transform: lowercase;
+  font-variant: small-caps;
+  font-weight: bold;
+  margin: 2rem auto;
+  color: @light-fg;
+  &:extend(#flash);
+}
+
+.ShowMore {
+  font-weight: bold;
+  display: block;
+  width: 100%;  
+  margin: 2rem auto;
+  text-align: center;
+  color: @tertiary;
+  background: none;
+  border: none;
+  font-size:1.1rem;
+  cursor: pointer;
+  outline:none;
+  &:hover {
+    color: @secondary;
+  }
+  text-transform: uppercase;
+}
+
+.Problem {
+  background-color: lighten(@secondary, 25%);
+  padding: 2rem;
 }

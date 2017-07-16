@@ -9,7 +9,9 @@
 @light-fg: darken(@subtle, 25%);
 @light-bg: #f8f8f8;
 @dividers: #eee;
-
+* {
+  box-sizing: border-box;
+}
 body {
   padding: 0;
   margin: 0;
@@ -17,9 +19,26 @@ body {
   color: @fg;
   font-family: Helvetica, Arial, sans-serif;
 }
+a {
+  color: @secondary;
+}
 
 #card {
   background-color: @bg;
   border-radius: 3px;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.1);
+}
+
+#button {
+  &:extend(#card);
+  background-color: @primary;
+  color: #fff;
+}
+
+@keyframes fade { 
+  from { opacity: 0.5; } 
+}
+
+#flash {
+    animation: fade 800ms infinite alternate;
 }

@@ -2,7 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/app.jsx',
+  entry: ['babel-polyfill', './src/app.jsx'],
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist'
@@ -39,7 +39,8 @@ module.exports = {
           plugins: [
             ['transform-react-jsx', {
               'pragma': 'createElement',
-            }]
+            }],
+            'transform-object-rest-spread',
           ]
         }
       }
