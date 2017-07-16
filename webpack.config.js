@@ -12,6 +12,10 @@ module.exports = {
       title: 'BenchTest'
     })
   ],
+  resolve: {
+    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    extensions: ['.jsx', '.js', '.json']
+  },
   module: {
     rules: [{
       test: /\.less$/,
